@@ -21,10 +21,7 @@ namespace TabGrabber {
                 artistSongs.AddRange(albumSongs);
             }
             //incase there are songs with no album directory
-            foreach (string song in Directory.GetFiles(artistDir)) {
-                Song s = new Song(song, artistDir, "");
-                artistSongs.Add(s);
-            }
+            artistSongs.AddRange(Directory.GetFiles(artistDir).Select(song => new Song(song, artistDir, "")));
             return artistSongs;
         }
 

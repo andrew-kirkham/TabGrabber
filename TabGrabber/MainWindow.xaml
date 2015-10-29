@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TabGrabber"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="709.943">
+        Title="MainWindow" Height="350" Width="823.966">
     <DockPanel Margin="0,0,19,0">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">

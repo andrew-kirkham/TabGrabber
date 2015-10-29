@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace TabGrabber {
     public class Song {
@@ -12,6 +7,7 @@ namespace TabGrabber {
         public string Artist { get; set; }
         public string Album { get; set; }
         private int Number { get; set; }
+        public bool Tab => WebQuery.CheckForTab(this);
 
         public Song(string Title, string Artist, string Album) {
             parseTitle(Title);
@@ -47,6 +43,10 @@ namespace TabGrabber {
             if (s.Album != Album) return false;
             if (s.Artist != Artist) return false;
             return true;
+        }
+
+        public override int GetHashCode() {
+            return base.GetHashCode();
         }
     }
 }

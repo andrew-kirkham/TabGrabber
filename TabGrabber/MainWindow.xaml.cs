@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TabGrabber {
     /// <summary>
@@ -25,6 +13,13 @@ namespace TabGrabber {
         private void LoadLibrary_Clicked(object sender, RoutedEventArgs e) {
             List<Song> allSongs = Library.LoadAll(@"F:\iTunes\iTunes Media\Music");
             listView.ItemsSource = allSongs;
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+            if (listView.Items.Count == 0) return;
+            var song = listView.SelectedItem;
+            WebQuery.CheckForTab(song as Song);
+
         }
     }
 }
