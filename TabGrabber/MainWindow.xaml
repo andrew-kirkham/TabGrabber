@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TabGrabber"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="823.966">
+        Title="MainWindow" Height="350" Width="750">
     <DockPanel Margin="0,0,19,0">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Load Library" Click="LoadLibrary_Clicked" />
-                <MenuItem Header="_Search" />
-                <MenuItem Header="_Save" />
+                <MenuItem Header="_Add A Song" Click="AddButton_Clicked" />
+                <MenuItem Header="_Save" Click="SaveButton_Clicked"/>
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>
         </Menu>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="256" Margin="10,35,0,0" VerticalAlignment="Top" Width="676">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="256" Margin="10,35,0,0" VerticalAlignment="Top" Width="676" MouseDoubleClick="Control_OnMouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Artist" Width ="200" DisplayMemberBinding="{Binding Artist}"/>
+                    <GridViewColumn Header="Artist" Width ="100" DisplayMemberBinding="{Binding Artist}" />
                     <GridViewColumn Header="Title" Width ="250" DisplayMemberBinding="{Binding Title}"/>
-                    <GridViewColumn Header="Album" Width ="120" DisplayMemberBinding="{Binding Album}"/>
-                    <GridViewColumn Header="Tab Available" Width ="85" DisplayMemberBinding="{Binding Tab}"/>
+                    <GridViewColumn Header="Album" Width ="150" DisplayMemberBinding="{Binding Album}"/>
+                    <GridViewColumn Header="Tab Available" Width ="85" DisplayMemberBinding="{Binding Tab}" />
                 </GridView>
             </ListView.View>
         </ListView>

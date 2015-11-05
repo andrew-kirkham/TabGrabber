@@ -7,12 +7,15 @@ namespace TabGrabber {
         public string Artist { get; set; }
         public string Album { get; set; }
         private int Number { get; set; }
-        public bool Tab => WebQuery.CheckForTab(this);
+
+        public bool Tab { get; set; }
+
 
         public Song(string Title, string Artist, string Album) {
             parseTitle(Title);
             this.Artist = Artist;
             this.Album = Album;
+            Tab = false; //WebQuery.CheckForTab(this);
         }
 
         private void parseTitle(string title) {

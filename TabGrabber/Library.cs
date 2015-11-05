@@ -36,5 +36,15 @@ namespace TabGrabber {
             }
             return artistSongs;
         }
+
+        public static IEnumerable<Song> LazyLoadAll(string libraryPath) {
+            return from artistDir in Directory.GetDirectories(libraryPath)
+                   from albumDir in Directory.GetDirectories(artistDir)
+                   let artistName = Directory.GetParent(albumDir).Name
+                   let albumName = new DirectoryInfo(albumDir).Name
+                   from songPath in Directory.GetFiles(albumDir)
+                   let songName = Path.GetFileNameWithoutExtension(songPath)
+                   select new Song(songName, artistName, albumName);
+        }
     }
 }
